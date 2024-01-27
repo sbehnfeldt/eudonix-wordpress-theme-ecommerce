@@ -26,17 +26,15 @@
         </div>
     </div>
 
-    <div class="grid-x grid-padding-x showcase">
-        <div class="large-12 cell">
-            <div class="callout secondary">
-                <h1>Discount Clothing</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, amet aspernatur aut consequatur
-                    corporis dolor eum excepturi explicabo facere fugit itaque nostrum numquam quis quod ratione
-                    reiciendis, repellendus saepe velit!</p>
-                <button class="button">Start Shoping</button>
+    <?php if (is_active_sidebar('showcase')):  ?>
+        <div class="grid-x grid-padding-x showcase">
+            <div class="large-12 cell">
+                <div class="callout secondary">
+                    <?php dynamic_sidebar('showcase') ?>
+                </div>
             </div>
         </div>
-    </div>
+    <?php endif; ?>
 
     <div class="grid-x grid-padding-x">
         <div class="large-8 medium-8 cell">
