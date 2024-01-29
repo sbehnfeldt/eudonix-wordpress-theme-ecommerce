@@ -18,15 +18,7 @@
         </div>
     </div>
 
-    <?php if ( is_active_sidebar( 'showcase' ) ): ?>
-        <div class="grid-x grid-padding-x showcase">
-            <div class="large-12 cell">
-                <div class="callout secondary">
-                    <?php dynamic_sidebar( 'showcase' ) ?>
-                </div>
-            </div>
-        </div>
-    <?php endif; ?>
+    <hr>
 
     <div class="grid-x grid-padding-x">
         <div class="large-8 medium-8 cell">
@@ -34,12 +26,23 @@
                 <div class="grid-x grid-padding-x">
                     <?php if ( have_posts() ): ?>
                         <?php while ( have_posts() ) : the_post(); ?>
-                            <div class="large-4 medium-4 small-12 cell product end">
-                                <h3><?php the_title(); ?></h3>
+                            <div class="row single-product">
+                                <div class="large-5 columns">
+                                    <a href="<?php echo site_url(); ?>" class="button">Go Back</a>
+                                </div>
                                 <?php if ( has_post_thumbnail() ): ?>
                                     <?php the_post_thumbnail(); ?>
                                 <?php endif; ?>
-                                <a href="<?php the_permalink(); ?>" class="button">Details</a>
+
+                                <div class="large-7 columns">
+                                    <h2><?php the_title(); ?></h2>
+                                    <?php the_content(); ?>
+                                    <hr>
+                                    <?php if ( function_exists( 'the_tags' ) ): ?>
+                                        <strong>Tags: <?php the_tags( '', ', ', '' ); ?><br/></strong>
+                                    <?php endif; ?>
+                                </div>
+                                <?php comments_template(); ?>
                             </div>
                         <?php endwhile; ?>
                     <?php endif; ?>

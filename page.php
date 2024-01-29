@@ -34,13 +34,13 @@
                 <div class="grid-x grid-padding-x">
                     <?php if ( have_posts() ): ?>
                         <?php while ( have_posts() ) : the_post(); ?>
-                            <div class="large-4 medium-4 small-12 cell product end">
-                                <h3><?php the_title(); ?></h3>
-                                <?php if ( has_post_thumbnail() ): ?>
-                                    <?php the_post_thumbnail(); ?>
-                                <?php endif; ?>
-                                <a href="<?php the_permalink(); ?>" class="button">Details</a>
-                            </div>
+                        <div class="large-12 columns">
+                            <h3><?php the_title(); ?></h3>
+                            <?php if ( has_post_thumbnail() ): ?>
+                                <?php the_post_thumbnail(); ?>
+                            <?php endif; ?>
+                            <?php the_content(); ?>
+                        </div>
                         <?php endwhile; ?>
                     <?php endif; ?>
                 </div>
