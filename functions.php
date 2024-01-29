@@ -10,6 +10,9 @@ function ms_theme_setup() {
     register_nav_menus( [
         'primary' => __( 'Primary Men' )
     ] );
+
+    // Featured Image Support
+    add_theme_support( 'post-thumbnails' );
 }
 
 add_action( 'after_setup_theme', 'ms_theme_setup' );
@@ -37,7 +40,7 @@ add_action( 'widgets_init', 'ms_init_widgets' );
 
 // Register Widgets
 function ms_register_widgets() {
-    register_widget('WP_Widget_Categories_Custom');
+    register_widget( 'WP_Widget_Categories_Custom' );
 }
 
-add_action('widgets_init', 'ms_register_widgets');
+add_action( 'widgets_init', 'ms_register_widgets' );
